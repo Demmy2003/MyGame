@@ -1,5 +1,6 @@
 import {Actor, CollisionType, Vector} from "excalibur";
 import { Resources } from "./resources.js";
+import {Groups} from './groups.js'
 
 export class Tile extends Actor {
 
@@ -11,6 +12,7 @@ export class Tile extends Actor {
         const tileBlock = Resources.Tile.toSprite();
         tileBlock.height = 70
         tileBlock.width = 70
+        this.body.group = Groups.tileGroup;
         this.graphics.add(tileBlock)
 
     }

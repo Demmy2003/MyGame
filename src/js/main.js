@@ -7,6 +7,7 @@ import {Tile} from "./tile.js"
 import {MiniBomber} from "./miniBomber.js";
 import {FlyingHammer} from "./flyingHammer.js";
 import {FlyingSomething} from "./flyingSomething.js";
+import {Bullet} from "./bullet.js"
 
 
 class Game extends Engine {
@@ -20,7 +21,7 @@ class Game extends Engine {
         Physics.useRealisticPhysics();
         Physics.gravity = new Vector(0, 680);
 
-        // this.showDebug(true)
+        this.showDebug(true)
 
         this.start(ResourceLoader).then(() => this.startGame())
     }
@@ -32,12 +33,12 @@ class Game extends Engine {
         this.add(background)
 
         let zombie = new Zombie()
-        zombie.pos = new Vector( 600, 635)
+        zombie.pos = new Vector( 300, 635)
         zombie.vel = new Vector(50, 0)
         this.add(zombie)
 
         let bomber = new MiniBomber()
-        bomber.pos = new Vector(500, 635)
+        bomber.pos = new Vector(500, 600)
         bomber.vel = new Vector(70, 0)
         this.add(bomber)
 
@@ -50,6 +51,9 @@ class Game extends Engine {
         flyer.pos = new Vector(700, 270)
         flyer.vel = new Vector(80, 0)
         this.add(flyer)
+
+        let bullet = new Bullet()
+        flyer.addChild(bullet)
 
         let tile = new Tile()
         tile.pos = new Vector(1000, 640)

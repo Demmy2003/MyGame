@@ -4,10 +4,11 @@ import { ImageSource, Sound, Resource, Loader, Actor } from 'excalibur'
 import background from '../images/Background.png'
 import grass from '../images/grass.png'
 
-import zombie from '../images/sketch-character.png'
+import zombie from '../images/zombie.png'
 import bomb from '../images/bomber.png'
 import hammer from '../images/hammer.png'
 import flyer from '../images/iets.png'
+import bullet from '../images/bullet.png'
 
 import tile from '../images/tile.png'
 
@@ -19,6 +20,7 @@ import tile from '../images/tile.png'
      Bomber: new ImageSource(bomb),
      Hammer: new ImageSource(hammer),
      Flyer: new ImageSource(flyer),
+     Bullet: new ImageSource(bullet),
 
      Tile: new ImageSource(tile)
 
@@ -32,6 +34,7 @@ import tile from '../images/tile.png'
      Resources.Bomber,
      Resources.Hammer,
      Resources.Flyer,
+     Resources.Bullet,
 
      Resources.Tile
  ])

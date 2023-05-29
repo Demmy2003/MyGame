@@ -16,4 +16,12 @@ export class FlyingHammer extends Actor {
     onInitialize(_engine) {
         this.body.collisionType = CollisionType.Fixed
     }
+    onPostUpdate(_engine, _delta) {
+        super.onPostUpdate(_engine, _delta);
+        if (this.pos.x > 1368  || this.pos.y > 692 ) {
+            console.log(`Hammer is killed`)
+            this.vel = new Vector(0,0)
+            this.kill()
+        }
+    }
 }
