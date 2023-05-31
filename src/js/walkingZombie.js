@@ -6,6 +6,7 @@ export class Zombie extends Actor {
         super({
             width: 50,
             height: 52,
+            radius: 30
         });
         const walkingZombie = Resources.Zombie.toSprite();
         walkingZombie.height = 100

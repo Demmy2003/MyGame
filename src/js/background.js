@@ -1,6 +1,5 @@
 import {Actor, CollisionType, Vector} from 'excalibur';
 import { Resources } from "./resources.js";
-import {Groups} from './groups.js'
 
 export class Background extends Actor {
 
@@ -10,7 +9,6 @@ export class Background extends Actor {
             height: 690
         });
         const backgroundImage = Resources.Background.toSprite();
-        this.body.group = Groups.floorGroup;
         this.graphics.add(backgroundImage);
     }
     onInitialize(_) {
@@ -32,3 +30,9 @@ export class Grass extends Actor {
         this.body.collisionType = CollisionType.Fixed
     }
 }
+
+// export class Button extends Actor {
+//     constructor() {
+//         super();
+//     }
+// }

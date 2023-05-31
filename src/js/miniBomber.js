@@ -1,6 +1,7 @@
-import {Actor, CollisionStartEvent, CollisionType, Vector} from "excalibur";
+import {Actor, CollisionType, Vector} from "excalibur";
 import { Resources } from "./resources.js";
-import {Groups} from './groups.js'
+
+import {Tile} from "./tile.js";
 
 export class MiniBomber extends Actor {
     constructor() {
@@ -11,7 +12,7 @@ export class MiniBomber extends Actor {
         const miniBomber = Resources.Bomber.toSprite();
         miniBomber.height = 100
         miniBomber.width = 75
-        this.body.group = Groups.teamGroup;
+
         this.graphics.add(miniBomber)
         console.log(`I'm a bomber`)
 
@@ -21,17 +22,20 @@ export class MiniBomber extends Actor {
         this.body.collisionType = CollisionType.Fixed
         this.on("collisionstart", (event) => this.onCollisionStart(event));
     }
+
     onCollisionStart(event) {
         const otherActor = event.other;
-        if (otherActor instanceof Actor && otherActor.body.group === Groups.tileGroup) {
+        if (otherActor instanceof Tile) {
             console.log(`Bomber collided with Tile and got killed`);
             this.kill();
+            otherActor.kill();
+        } else {
+            console.log("shooting")
         }
     }
+
     onPostUpdate(_engine, _delta) {
         super.onPostUpdate(_engine, _delta);
-
-
 
         if (this.pos.x > 1368 || this.pos.y > 692) {
             console.log(`Bomber is killed`);
@@ -40,8 +44,6 @@ export class MiniBomber extends Actor {
         }
 
     }
-
-
 
 }
 
