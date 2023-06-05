@@ -8,10 +8,13 @@ import button from "../images/button.png"
 import zombie from '../images/zombie.png'
 import bomb from '../images/bomber.png'
 import hammer from '../images/hammer.png'
-import flyer from '../images/iets.png'
+import flyer from '../images/flyer.png'
 import bullet from '../images/bullet.png'
 
 import tile from '../images/tile.png'
+import egg from "../images/dragonEgg.png"
+
+import explosion from "../images/explosion.png"
 
  const Resources = {
 
@@ -27,7 +30,10 @@ import tile from '../images/tile.png'
      Flyer: new ImageSource(flyer),
      Bullet: new ImageSource(bullet),
 
-     Tile: new ImageSource(tile)
+     Explosion: new ImageSource(explosion),
+
+     Tile: new ImageSource(tile),
+     Egg: new ImageSource(egg)
 
  }
 
@@ -45,7 +51,10 @@ import tile from '../images/tile.png'
      Resources.Flyer,
      Resources.Bullet,
 
-     Resources.Tile
+     Resources.Explosion,
+
+     Resources.Tile,
+     Resources.Egg
  ])
 
 export {Resources, ResourceLoader}

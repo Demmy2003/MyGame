@@ -1,5 +1,5 @@
 import {Actor, CollisionType, Vector} from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "../resources.js";
 
 export class Zombie extends Actor {
     constructor() {

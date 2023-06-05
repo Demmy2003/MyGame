@@ -1,5 +1,5 @@
 import {Actor, CollisionType, Vector} from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "../resources.js";
 
 
 export class FlyingHammer extends Actor {
@@ -7,6 +7,7 @@ export class FlyingHammer extends Actor {
         super({
             width: 50,
             height: 100,
+            radius: 30
         });
         const flyingHammer = Resources.Hammer.toSprite();
         flyingHammer.height = 100

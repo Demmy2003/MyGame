@@ -1,7 +1,9 @@
 import {Actor, CollisionType, Sprite, Vector} from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "../resources.js";
 import {Grass} from "./background.js";
-import {Tile} from "./tile.js";
+import {Tile, HorizontalTile, TallTile} from "./tile.js";
+import {Eggs} from "./eggs.js";
+import {Explode} from "./explosion.js";
 
 export class Bullet extends Actor {
     constructor() {
@@ -29,17 +31,30 @@ export class Bullet extends Actor {
             console.log(`bullet collided with grass and got killed`);
             this.kill();
 
-        } else if (otherActor instanceof Tile ){
+        } else if (otherActor instanceof Tile ||
+            otherActor instanceof TallTile ||
+            otherActor instanceof HorizontalTile ||
+            otherActor instanceof Eggs ||
+            otherActor instanceof Grass
+        ){
+            // Create an explosion at the collision position
+
 
             console.log(`bullet collided with tile and got killed`);
-            otherActor.kill();
             this.kill();
 
         }
     }
+    onPreKill(_scene) {
+        super.onPreKill(_scene);
+        const explosion = new Explode();
+        explosion.pos = this.pos.clone();
+        this.scene.add(explosion);
+    }
 
     onPostUpdate(_engine, _delta) {
         super.onPostUpdate(_engine, _delta);
+
         if (this.pos.x > 1368  || this.pos.y > 692 ) {
             console.log(`bullet is killed`)
             this.vel = new Vector(0,0)

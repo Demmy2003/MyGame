@@ -1,5 +1,5 @@
-import {Actor, CollisionType} from "excalibur";
-import { Resources } from "./resources.js";
+import {Actor, CollisionType, Vector} from "excalibur";
+import { Resources } from "../resources.js";
 import { Bullet } from "./bullet.js";
 
 
@@ -23,7 +23,7 @@ export class FlyingSomething extends Actor {
     }
 
     onInitialize(engine) {
-        this.body.collisionType = CollisionType.Fixed;
+        this.body.collisionType = CollisionType.Passive;
         this.elapsedTime = 0;
 
     }
@@ -37,10 +37,13 @@ export class FlyingSomething extends Actor {
         this.elapsedTime += _delta;
 
         // Shoot bullets at regular intervals
-        if (this.elapsedTime >= this.shootInterval) {
-            this.shoot();
-            this.elapsedTime = 0;
+        if(this.vel.x !==0 || this.vel.y !== 0) {
+            if (this.elapsedTime >= this.shootInterval) {
+                this.shoot();
+                this.elapsedTime = 0;
+            }
         }
+
 
     }
     shoot() {

@@ -1,7 +1,9 @@
 import {Actor, CollisionType, Vector} from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "../resources.js";
 
-import {Tile} from "./tile.js";
+import {Tile, TallTile, HorizontalTile} from "./tile.js";
+import {Eggs} from "./eggs.js";
+import {Explode} from "./explosion.js";
 
 export class MiniBomber extends Actor {
     constructor() {
@@ -25,13 +27,23 @@ export class MiniBomber extends Actor {
 
     onCollisionStart(event) {
         const otherActor = event.other;
-        if (otherActor instanceof Tile) {
+        if (otherActor instanceof Tile
+            || otherActor instanceof TallTile
+            || otherActor instanceof HorizontalTile
+            || otherActor instanceof Eggs
+            ) {
             console.log(`Bomber collided with Tile and got killed`);
             this.kill();
             otherActor.kill();
         } else {
             console.log("shooting")
         }
+    }
+    onPreKill(_scene) {
+        super.onPreKill(_scene);
+        const explosion = new Explode();
+        explosion.pos = this.pos.clone();
+        this.scene.add(explosion);
     }
 
     onPostUpdate(_engine, _delta) {

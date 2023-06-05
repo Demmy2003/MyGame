@@ -1,5 +1,5 @@
 import {Actor, CollisionType, Vector} from 'excalibur';
-import { Resources } from "./resources.js";
+import { Resources } from "../resources.js";
 
 export class Background extends Actor {
 
@@ -12,7 +12,7 @@ export class Background extends Actor {
         this.graphics.add(backgroundImage);
     }
     onInitialize(_) {
-        this.body.collisionType = CollisionType.Passive
+        this.body.collisionType = CollisionType.PreventCollision
     }
 
 }
@@ -30,6 +30,7 @@ export class Grass extends Actor {
         this.body.collisionType = CollisionType.Fixed
     }
 }
+
 
 // export class Button extends Actor {
 //     constructor() {
