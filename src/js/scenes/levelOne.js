@@ -27,11 +27,15 @@ import {FailOne} from "./failOne.js";
 
 export class LevelOne extends Scene {
     game
+    remainingSeconds
+    VictoryScene
 
-    constructor() {
+    constructor(remainingSeconds) {
         super();
         Physics.useRealisticPhysics();
         Physics.gravity = new Vector(0, 680);
+        this.remainingSeconds = remainingSeconds
+
     }
 
     onInitialize(_engine) {
@@ -46,7 +50,8 @@ export class LevelOne extends Scene {
 
     startLevelOne(){
 
-
+        this.VictoryScene = new VictoryOne()
+        this.game.add('VictoryOne', this.VictoryScene)
 
         console.log('start')
         let background = new Background()
@@ -63,7 +68,7 @@ export class LevelOne extends Scene {
         })
         this.add(timerLabel);
 
-        let remainingSeconds = 5;
+        let remainingSeconds = 50;
 
         // Update the timer label every second
         this.timerInterval = setInterval(() => {
@@ -267,13 +272,14 @@ export class LevelOne extends Scene {
             const remainingSeconds = parseInt(remainingSecondsText);
             // Save the remaining time or perform any other desired action
             console.log('Remaining seconds:', remainingSeconds);
+            this.VictoryScene.remainingSeconds = remainingSeconds
 
             // Save the remaining seconds in localStorage
 
 
             console.log('All eggs have died!');
             setTimeout(() => {
-                this.game.add('VictoryOne', new VictoryOne(remainingSeconds));
+
                 this.game.goToScene('VictoryOne');
             }, 2000);
             clearInterval(this.timerInterval);
