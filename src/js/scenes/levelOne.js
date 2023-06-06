@@ -1,15 +1,10 @@
 
 import {
-    Engine,
-    Actor,
     Vector,
     Physics,
     Scene,
     Label,
     Font,
-    Sprite,
-    DisplayMode,
-    CollisionType,
     MoveTo,
     FontUnit
 } from 'excalibur'
@@ -306,10 +301,7 @@ export class LevelOne extends Scene {
         tile15.pos = new Vector(1210, 185)
         this.add(tile15)
 
-        // second building
 
-        let tilei = new Tile()
-        tilei.pos = new Vector()
 
 
         let grass = new Grass()

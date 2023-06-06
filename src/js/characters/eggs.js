@@ -29,7 +29,6 @@ export class Eggs extends Actor {
     onPreCollision(event) {
         const side = event.side;
         const otherActor = event.other
-// console.log(side)
 
         if (side === 'Top' ) {
             this.kill()
