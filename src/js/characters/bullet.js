@@ -1,4 +1,4 @@
-import {Actor, CollisionType, Sprite, Vector} from "excalibur";
+import {Actor, CollisionType, Vector} from "excalibur";
 import { Resources } from "../resources.js";
 import {Grass} from "./background.js";
 import {Tile, HorizontalTile, TallTile} from "./tile.js";

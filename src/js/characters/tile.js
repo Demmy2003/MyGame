@@ -1,4 +1,4 @@
-import {Actor,Vector, CollisionType} from "excalibur";
+import {Actor, CollisionType} from "excalibur";
 import { Resources } from "../resources.js";
 
 

@@ -68,7 +68,7 @@ export class LevelOne extends Scene {
         })
         this.add(timerLabel);
 
-        let remainingSeconds = 50;
+        let remainingSeconds = 60;
 
         // Update the timer label every second
         this.timerInterval = setInterval(() => {
@@ -134,7 +134,7 @@ export class LevelOne extends Scene {
         spawnHammer.on('pointerup', ()=>{
             if(!hammerClicked) {
                 const promise = new Promise((resolve) => {
-                    hammer.actions.moveTo(600, 370, 500).callMethod(resolve)
+                    hammer.actions.moveTo(400, 195, 500).callMethod(resolve)
                 })
                 promise.then(() => {
                     hammer.vel = new Vector(180, 0)
@@ -193,10 +193,60 @@ export class LevelOne extends Scene {
                 })
             }
         })
-
-
-
 // first building
+        let egg100 = new Eggs()
+        egg100.pos = new Vector(1100 - 300, 635)
+        this.add(egg100)
+
+        let tile100 = new TallTile()
+        tile100.pos = new Vector(1300 - 300, 590)
+        this.add(tile100)
+
+        let tile900 = new TallTile()
+        tile900.pos = new Vector(1210 - 300, 590)
+        this.add(tile900)
+
+        let tile1100 = new HorizontalTile()
+        tile1100.pos = new Vector(1255 - 300, 505)
+        this.add(tile1100)
+
+        let tile300 = new TallTile()
+        tile300.pos = new Vector(1300 - 300, 420)
+        this.add(tile300)
+
+        let egg200 = new Eggs()
+        egg200.pos = new Vector(1255 - 300, 475)
+        this.add(egg200)
+
+        let tile1300 = new TallTile()
+        tile1300.pos = new Vector(1210 - 300, 420)
+        this.add(tile1300)
+
+        let tile500 = new HorizontalTile()
+        tile500.pos = new Vector(1255 - 300, 335)
+        this.add(tile500)
+
+        let tile600 = new Tile()
+        tile600.pos = new Vector(1300 - 300, 285)
+        this.add(tile600)
+
+        let tile700 = new Tile()
+        tile700.pos = new Vector(1210 - 300, 285)
+        this.add(tile700)
+
+        let tile800 = new HorizontalTile()
+        tile800.pos = new Vector(1255 - 300, 235)
+        this.add(tile800)
+
+
+
+        let egg300 = new Eggs()
+        egg300.pos = new Vector(1255 - 300, 195)
+        this.add(egg300)
+
+
+
+// last building
 
         let egg2 = new Eggs()
         egg2.pos = new Vector(1100,635)
@@ -248,9 +298,18 @@ export class LevelOne extends Scene {
         tile14.pos = new Vector(1300, 185)
         this.add(tile14)
 
+        let egg3 = new Eggs()
+        egg3.pos = new Vector(1255, 195)
+        this.add(egg3)
+
         let tile15 = new Tile()
         tile15.pos = new Vector(1210, 185)
         this.add(tile15)
+
+        // second building
+
+        let tilei = new Tile()
+        tilei.pos = new Vector()
 
 
         let grass = new Grass()
@@ -276,15 +335,16 @@ export class LevelOne extends Scene {
 
             // Save the remaining seconds in localStorage
 
-
-            console.log('All eggs have died!');
             setTimeout(() => {
 
                 this.game.goToScene('VictoryOne');
             }, 2000);
             clearInterval(this.timerInterval);
         }
+
+
     }
+
 
 
 

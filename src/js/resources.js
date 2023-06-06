@@ -1,9 +1,15 @@
 
-import { ImageSource, Sound, Resource, Loader, Actor } from 'excalibur'
+import { ImageSource, Loader} from 'excalibur'
 
 import background from '../images/Background.png'
 import grass from '../images/grass.png'
+import blackShade from "../images/blackShade.png"
+
 import button from "../images/button.png"
+import startTekstOne from "../images/startTekstOne.png"
+import startTekstTwo from "../images/starttesktTwo.png"
+import failTekst from "../images/failTekst.png"
+import winTekst from "../images/winTekst.png"
 
 import zombie from '../images/zombie.png'
 import bomb from '../images/bomber.png'
@@ -18,10 +24,16 @@ import explosion from "../images/explosion.png"
 
  const Resources = {
 
-    Background: new ImageSource(background),
+     Background: new ImageSource(background),
      Grass: new ImageSource(grass),
+     BlackShade: new ImageSource(blackShade),
 
      Button: new ImageSource(button),
+
+     StartTekstOne: new ImageSource(startTekstOne),
+     StartTekstTwo: new ImageSource(startTekstTwo),
+     FailTekst: new ImageSource(failTekst),
+     WinTekst: new ImageSource(winTekst),
 
      Zombie: new ImageSource(zombie),
      Bomber: new ImageSource(bomb),
@@ -41,8 +53,14 @@ import explosion from "../images/explosion.png"
 
      Resources.Background,
      Resources.Grass,
+     Resources.BlackShade,
 
      Resources.Button,
+
+     Resources.StartTekstOne,
+     Resources.StartTekstTwo,
+     Resources.FailTekst,
+     Resources.WinTekst,
 
      Resources.Zombie,
      Resources.Bomber,

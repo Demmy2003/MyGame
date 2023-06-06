@@ -1,4 +1,4 @@
-import {Actor, CollisionType, Vector} from "excalibur";
+import {Actor, CollisionType} from "excalibur";
 import {Resources} from "../resources.js";
 
 export class Button extends Actor {

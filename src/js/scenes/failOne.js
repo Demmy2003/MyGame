@@ -1,8 +1,16 @@
-import {Engine, Actor, Vector,  Scene, Label, Font, FontUnit, Sprite, DisplayMode, CollisionType, MoveTo} from 'excalibur'
-import {Background, Grass} from "../characters/background.js";
+import {
+    Vector,
+    Scene,
+    Label,
+    Font,
+    FontUnit,
+    Color
+} from 'excalibur'
+import {Background, Shade} from "../characters/background.js";
 
-import {Button, SceneButton} from "../characters/button.js";
+import { SceneButton} from "../characters/button.js";
 import {LevelOne} from "./levelOne.js";
+import {FailTekst} from "../characters/textBubbles.js";
 
 
 export class FailOne extends Scene {
@@ -24,17 +32,26 @@ export class FailOne extends Scene {
         background.pos = new Vector(1366/2,310)
         this.add(background)
 
+        let shade = new Shade()
+        shade.pos = new Vector(1366/2, 310)
+        this.add(shade)
+
         let label = new Label({
-            text: 'Fail',
-            pos: new Vector(1366/2, 100),
+            text: 'Epic Fail',
+            pos: new Vector(590, 180),
             font: new Font({
-                family: 'Arial',
-                size: 50,
-                unit: FontUnit.Px
+                family: 'Impact',
+                size: 60,
+                unit: FontUnit.Px,
+                color: Color.White
             })
         })
 
         this.add(label)
+
+        let failTekst = new FailTekst()
+        failTekst.pos = new Vector(1366/2, 350)
+        this.add(failTekst)
 
 
         let button = new SceneButton()
@@ -50,10 +67,10 @@ export class FailOne extends Scene {
 
         let label3 = new Label({
             text: `Try Again`,
-            pos: new Vector(1366/2, 550),
+            pos: new Vector(630, 560),
             font: new Font({
                 family: 'impact',
-                size: 24,
+                size: 30,
                 unit: FontUnit.Px
             })
         })

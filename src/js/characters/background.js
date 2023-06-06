@@ -1,4 +1,4 @@
-import {Actor, CollisionType, Vector} from 'excalibur';
+import {Actor, CollisionType} from 'excalibur';
 import { Resources } from "../resources.js";
 
 export class Background extends Actor {
@@ -32,8 +32,15 @@ export class Grass extends Actor {
 }
 
 
-// export class Button extends Actor {
-//     constructor() {
-//         super();
-//     }
-// }
+export class Shade extends Actor {
+    constructor() {
+        super({
+            width: 1366,
+            height: 690
+        });
+        const backgroundShade = Resources.BlackShade.toSprite();
+        backgroundShade.width = 1366
+        backgroundShade.height = 800
+        this.graphics.add(backgroundShade);
+    }
+}

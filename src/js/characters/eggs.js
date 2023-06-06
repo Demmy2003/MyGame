@@ -1,6 +1,5 @@
-import {Actor,Vector, CollisionType} from "excalibur";
+import {Actor, CollisionType} from "excalibur";
 import { Resources } from "../resources.js";
-import {Tile, TallTile, HorizontalTile} from "./tile.js"
 import {Explode} from "./explosion.js";
 
 export class Eggs extends Actor {

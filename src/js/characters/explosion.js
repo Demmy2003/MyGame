@@ -35,14 +35,17 @@ export class Explode extends Actor {
             console.log(`bullet collided with grass and got killed`);
             this.kill();
 
-        } else if (otherActor instanceof Tile ||
+        } else if (
+            otherActor instanceof Tile ||
             otherActor instanceof TallTile ||
             otherActor instanceof HorizontalTile ||
             otherActor instanceof Eggs ||
-        otherActor instanceof FlyingHammer ||
-        otherActor instanceof Bullet ||
-        otherActor instanceof Zombie ||
-        otherActor instanceof FlyingSomething){
+            otherActor instanceof FlyingHammer ||
+            otherActor instanceof Bullet ||
+            otherActor instanceof Zombie ||
+            otherActor instanceof FlyingSomething ||
+            otherActor instanceof MiniBomber
+        ){
 
             console.log(`bullet collided with tile and got killed`);
             otherActor.kill();

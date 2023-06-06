@@ -1,14 +1,11 @@
 import '../css/style.css'
-import {Engine, Actor, Vector, Physics, Sprite, DisplayMode, CollisionType, Label, Font, FontUnit} from 'excalibur'
-import {Resources, ResourceLoader} from "./resources.js";
-import {Background, Grass} from "./characters/background.js";
-import { Zombie} from "./characters/walkingZombie.js";
-import {Tile} from "./characters/tile.js"
-import {MiniBomber} from "./characters/miniBomber.js";
-import {FlyingHammer} from "./characters/flyingHammer.js";
-import {FlyingSomething} from "./characters/flyingSomething.js";
-import {Button} from "./characters/button.js";
+import {Engine, Vector, Physics, Label, Font, FontUnit} from 'excalibur'
+import { ResourceLoader} from "./resources.js";
+import {Background} from "./characters/background.js";
+import {SceneButton} from "./characters/button.js";
 import {LevelOne} from "./scenes/levelOne.js"
+import {StartTekstOne, StartTekstTwo} from "./characters/textBubbles.js";
+import {VictoryOne} from "./scenes/victoryOne.js";
 
 
 class Game extends Engine {
@@ -22,38 +19,49 @@ class Game extends Engine {
         Physics.useRealisticPhysics();
         Physics.gravity = new Vector(0, 400);
 
-        this.showDebug(true)
 
         this.start(ResourceLoader).then(() => this.startGame())
     }
 
     startGame(){
         this.add('LevelOne', new LevelOne())
+        this.VictoryScene = new VictoryOne()
 
 
         let background = new Background()
         background.pos = new Vector(1366/2,310)
         this.add(background)
 
-       const startButton = new Button()
-        startButton.pos = new Vector(700 , 400)
+        let tekstOne = new StartTekstOne()
+        tekstOne.pos = new Vector(633, 225)
+        this.add(tekstOne)
+
+        let tekstTwo = new StartTekstTwo()
+        tekstTwo.pos = new Vector(733, 400)
+        this.add(tekstTwo)
+
+
+       const startButton = new SceneButton()
+        startButton.pos = new Vector(700 , 550)
         startButton.enableCapturePointer = true
         startButton.pointer.useGraphicsBounds = true
         startButton.on('pointerup', () => {
             this.goToScene('LevelOne')
         })
         this.add(startButton)
+
         let label = new Label({
             text: 'Start',
-            pos: new Vector(1366/2, 100),
+            pos: new Vector(660, 565),
             font: new Font({
                 family: 'impact',
-                size: 24,
+                size: 40,
                 unit: FontUnit.Px
             })
         })
 
-        startButton.addChild(label)
+        this.add(label)
+
 
     }
 
