@@ -32,7 +32,6 @@ export class Explode extends Actor {
 
         if (otherActor instanceof Grass) {
 
-            console.log(`bullet collided with grass and got killed`);
             this.kill();
 
         } else if (
@@ -47,18 +46,11 @@ export class Explode extends Actor {
             otherActor instanceof MiniBomber
         ){
 
-            console.log(`bullet collided with tile and got killed`);
             otherActor.kill();
 
         }
     }
-    // onPreKill(_scene) {
-    //     super.onPreKill(_scene);
-    //     this.scale = this.scale.add(new Vector(0.1, 0.1));
-    //     if (this.scale.x >= 3 && this.scale.y >= 3) {
-    //         this.kill();
-    //     }
-    // }
+
 
     onPostUpdate(_engine, _delta) {
         super.onPostUpdate(_engine, _delta);

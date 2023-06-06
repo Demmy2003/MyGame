@@ -34,15 +34,12 @@ export class Eggs extends Actor {
         if (side === 'Top' ) {
             this.kill()
             otherActor.kill();
-            console.log(`egg collided top`)
         } else if (side === 'Right'){
             this.kill()
             otherActor.kill();
-            console.log(`egg collided right`)
         } else if (side === 'Left') {
             this.kill()
             otherActor.kill();
-            console.log(`egg collided left`)
         }
     }
 }

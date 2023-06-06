@@ -16,7 +16,6 @@ export class MiniBomber extends Actor {
         miniBomber.width = 75
 
         this.graphics.add(miniBomber)
-        console.log(`I'm a bomber`)
 
 
     }
@@ -32,11 +31,8 @@ export class MiniBomber extends Actor {
             || otherActor instanceof HorizontalTile
             || otherActor instanceof Eggs
             ) {
-            console.log(`Bomber collided with Tile and got killed`);
             this.kill();
             otherActor.kill();
-        } else {
-            console.log("shooting")
         }
     }
     onPreKill(_scene) {
@@ -50,7 +46,7 @@ export class MiniBomber extends Actor {
         super.onPostUpdate(_engine, _delta);
 
         if (this.pos.x > 1368 || this.pos.y > 692) {
-            console.log(`Bomber is killed`);
+
             this.vel = Vector.Zero;
             this.kill();
         }

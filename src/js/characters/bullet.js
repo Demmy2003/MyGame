@@ -16,7 +16,7 @@ export class Bullet extends Actor {
         bullets.height = 30
 
         this.graphics.add(bullets)
-        console.log(`I'm a bullet`)
+
     }
 
     onInitialize(_engine) {
@@ -28,7 +28,6 @@ export class Bullet extends Actor {
         const otherActor = event.other;
         if (otherActor instanceof Grass) {
 
-            console.log(`bullet collided with grass and got killed`);
             this.kill();
 
         } else if (otherActor instanceof Tile ||
@@ -37,10 +36,7 @@ export class Bullet extends Actor {
             otherActor instanceof Eggs ||
             otherActor instanceof Grass
         ){
-            // Create an explosion at the collision position
 
-
-            console.log(`bullet collided with tile and got killed`);
             this.kill();
 
         }
@@ -56,7 +52,6 @@ export class Bullet extends Actor {
         super.onPostUpdate(_engine, _delta);
 
         if (this.pos.x > 1368  || this.pos.y > 692 ) {
-            console.log(`bullet is killed`)
             this.vel = new Vector(0,0)
             this.kill()
         }

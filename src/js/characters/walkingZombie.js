@@ -12,7 +12,7 @@ export class Zombie extends Actor {
         walkingZombie.height = 100
         walkingZombie.width = 80
         this.graphics.add(walkingZombie)
-        console.log(`I'm a `)
+
 
     }
     onInitialize(_engine) {
@@ -21,7 +21,7 @@ export class Zombie extends Actor {
     onPostUpdate(_engine, _delta) {
         super.onPostUpdate(_engine, _delta);
         if (this.pos.x > 1368  || this.pos.y > 692 ) {
-            console.log(`zombie is killed`)
+
             this.vel = new Vector(0,0)
             this.kill()
         }
