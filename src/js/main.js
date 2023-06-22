@@ -25,6 +25,8 @@ class Game extends Engine {
 
     startGame(){
         this.add('LevelOne', new LevelOne())
+
+
         this.VictoryScene = new VictoryOne()
 
 
